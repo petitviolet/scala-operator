@@ -5,7 +5,7 @@ Everything is WIP.
 
 ## Sample
 
-[Example](./tree/master/example/src/main/net/petitviolet/operator/Example.scala)
+[Example](./example/src/main/net/petitviolet/operator/Example.scala)
 
 ## Getting Started
 
