@@ -12,8 +12,11 @@ Everything is WIP.
 
 ## Getting Started
 
-Not yet published any Maven repository.  
-Even though you want to use this, you can use after `git clone` and `sbt publishLocal`.
+build.sbt
+
+```scala
+libraryDependencies += "net.petitviolet" %% "operator" % <latest-version>
+```
 
 ## LISENCE
 
