@@ -8,7 +8,7 @@ Everything is WIP.
 
 ## Sample
 
-[Example](./example/src/main/net/petitviolet/operator/Example.scala)
+[Example](https://github.com/petitviolet/scala-operator/blob/master/modules/example/src/main/scala/net/petitviolet/operator/Example.scala)
 
 ## Getting Started
 
