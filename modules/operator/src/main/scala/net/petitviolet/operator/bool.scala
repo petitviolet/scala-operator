@@ -1,15 +1,18 @@
 package net.petitviolet.operator
 
 final class BoolOps private[operator](val a: Boolean) extends AnyVal {
-  def and(b: Boolean): Boolean = a && b
+  def and(b: => Boolean): Boolean = a && b
 
-  def or(b: Boolean): Boolean = a || b
+  def or(b: => Boolean): Boolean = a || b
 
-  def xor(b: Boolean): Boolean = (a && !b) || (!a && b)
+  def xor(b: => Boolean): Boolean = {
+    lazy val _b = b
+    (a && !_b) || (!a && _b)
+  }
 
-  def nor(b: Boolean): Boolean = !or(b)
+  def nor(b: => Boolean): Boolean = !or(b)
 
-  def nand(b: Boolean): Boolean = !and(b)
+  def nand(b: => Boolean): Boolean = !and(b)
 
   def fold[A](t: => A)(f: => A): A = if (a) t else f
 }
