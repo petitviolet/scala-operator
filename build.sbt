@@ -1,4 +1,4 @@
-val VERSION = "0.2.1"
+val VERSION = "0.2.2"
 
 val GROUP_ID = "net.petitviolet"
 
@@ -23,9 +23,9 @@ lazy val root = (project in file("."))
 
 lazy val example = (project in file("modules/example"))
   .settings(commonSettings, name := "example")
-  .settings(libraryDependencies += GROUP_ID %% PROJECT_NAME % VERSION)
+//  .settings(libraryDependencies += GROUP_ID %% PROJECT_NAME % VERSION)
   .settings(scalacOptions += "-Xlog-implicits")
-//  .dependsOn(operator)
+  .dependsOn(operator)
 
 lazy val operator = (project in file(s"modules/$PROJECT_NAME"))
   .settings(
