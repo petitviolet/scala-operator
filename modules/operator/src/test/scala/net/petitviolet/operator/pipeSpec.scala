@@ -4,6 +4,11 @@ class pipeSpec extends TestBase {
 
   "|>" should "apply function" in {
     "123" |> { _.length } shouldBe 3
+
+    "abc" |> { _.reverse } |> { _.toUpperCase } |> { _ + "!"} |> { _.reverse } shouldBe "!ABC"
+
+    val increment: Int => Int = _ + 1
+    1 |> increment |> increment shouldBe 3
   }
 
 
