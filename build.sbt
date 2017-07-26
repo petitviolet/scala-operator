@@ -1,4 +1,4 @@
-val VERSION = "0.2.2"
+val VERSION = "0.2.3"
 
 val GROUP_ID = "net.petitviolet"
 
@@ -15,7 +15,6 @@ lazy val commonSettings = Seq(
   scalaVersion := "2.12.1",
   crossScalaVersions := Seq("2.11.8", "2.12.1")
 )
-
 
 lazy val root = (project in file("."))
   .settings(commonSettings, name := "root")
