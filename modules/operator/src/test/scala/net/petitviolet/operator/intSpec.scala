@@ -17,4 +17,8 @@ class intSpec extends TestBase {
     0.isZero shouldBe true
     (-1).isZero shouldBe false
   }
+
+  "++" should "increment int" in {
+    1.++ shouldBe 2
+  }
 }
