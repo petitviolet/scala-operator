@@ -1,19 +1,18 @@
-val VERSION = "0.2.3"
+val VERSION = "0.3.0"
 
 val GROUP_ID = "net.petitviolet"
 
 val PROJECT_NAME = "operator"
 
-
 lazy val commonDependencies = Seq(
-  "org.scalatest" %% "scalatest" % "3.0.1" % "test"
+  "org.scalatest" %% "scalatest" % "3.0.5" % "test"
 )
 
 lazy val commonSettings = Seq(
   version := VERSION,
   organization := GROUP_ID,
-  scalaVersion := "2.12.1",
-  crossScalaVersions := Seq("2.11.8", "2.12.1")
+  scalaVersion := "2.12.4",
+  crossScalaVersions := Seq("2.11.11", "2.12.4")
 )
 
 lazy val root = (project in file("."))
