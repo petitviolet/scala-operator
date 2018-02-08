@@ -1,15 +1,17 @@
 package net.petitviolet.operator
 
-private object StringOps {
-  private val spacesPattern = "[-\\s]".r
-  private val firstPattern = "([A-Z]+)([A-Z][a-z])".r
-  private val secondPattern = "([a-z\\d])([A-Z])".r
-  private val replacementPattern = "$1_$2"
+import scala.util.matching.Regex
+
+private object internalStringOps {
+  val spacesPattern: Regex = "[-\\s]".r
+  val firstPattern: Regex = "([A-Z]+)([A-Z][a-z])".r
+  val secondPattern: Regex = "([a-z\\d])([A-Z])".r
+  val replacementPattern: String = "$1_$2"
 }
 
-class StringOps(val word: String) extends AnyVal {
+class StringOperator(val word: String) extends AnyVal {
 
-  import StringOps._
+  import internalStringOps._
 
   def snakenize: String = {
     spacesPattern

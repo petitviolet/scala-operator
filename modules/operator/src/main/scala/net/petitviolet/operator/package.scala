@@ -7,6 +7,6 @@ package object operator {
   implicit def toPipe[A](a: A): Pipe[A] = new Pipe[A](a)
   implicit def toIntOps(i: Int): IntOps = new IntOps(i)
   implicit def toCompare[A](a: A): RichBoolOps[A] = new RichBoolOps[A](a)
-  implicit def toStringOps(s: String): StringOps = new StringOps(s)
+  implicit def toStringOps(s: String): StringOperator = new StringOperator(s)
   implicit def toFunctionOps[A, B](f: A => B): FunctionOps[A, B] = new FunctionOps[A, B](f)
 }

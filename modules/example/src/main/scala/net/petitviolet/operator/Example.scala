@@ -1,7 +1,7 @@
 package net.petitviolet.operator
 
 object Example extends App {
-  import net.petitviolet.operator._
+
   assert(true and true)
   assert(true or false)
   assert(true nand false)
@@ -26,5 +26,8 @@ object Example extends App {
   conf |> show |> println
   (conf.validate is false) |> println
   (conf |>> { _ += 10 } |> { _.port } is 1023 + 10) |> println
+
+  println("abc_def".camelize)
+  println("abcDef".snakenize)
 }
 
