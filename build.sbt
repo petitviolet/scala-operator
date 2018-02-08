@@ -1,11 +1,11 @@
-val VERSION = "0.3.1"
+val VERSION = "0.3.2"
 
 val GROUP_ID = "net.petitviolet"
 
 val PROJECT_NAME = "operator"
 
 lazy val commonDependencies = Seq(
-  "org.scalatest" %% "scalatest" % "3.0.5" % "test"
+  "org.scalatest" %% "scalatest" % "3.0.5" % Test
 )
 
 lazy val commonSettings = Seq(
@@ -20,9 +20,9 @@ lazy val root = (project in file("."))
 
 lazy val example = (project in file("modules/example"))
   .settings(commonSettings, name := "example")
-//  .settings(libraryDependencies += GROUP_ID %% PROJECT_NAME % VERSION)
+  .settings(libraryDependencies += GROUP_ID %% PROJECT_NAME % VERSION)
   .settings(scalacOptions += "-Xlog-implicits")
-  .dependsOn(operator)
+//  .dependsOn(operator)
 
 lazy val operator = (project in file(s"modules/$PROJECT_NAME"))
   .settings(commonSettings: _*)
