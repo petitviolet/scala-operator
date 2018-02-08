@@ -21,4 +21,4 @@ libraryDependencies += "net.petitviolet" %% "operator" % <latest-version>
 
 ## LISENCE
 
-[MIT License](https://petitviolet.mit-license.org/)
+[LISENCE](https://github.com/petitviolet/scala-operator/blob/master/LICENSE)
