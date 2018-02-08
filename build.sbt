@@ -31,6 +31,11 @@ lazy val operator = (project in file(s"modules/$PROJECT_NAME"))
     libraryDependencies ++= commonDependencies,
     crossScalaVersions := Seq("2.11.11", "2.12.4")
   )
-//  .settings(testOptions in Test += Tests.Argument(TestFrameworks.ScalaTest, "-u", {val dir = System.getenv("CI_REPORTS"); if(dir == null) "target/reports" else dir} ))
+  .settings(testOptions in Test += Tests.Argument(
+    TestFrameworks.ScalaTest, "-u", {
+      val dir = System.getenv("CI_REPORTS")
+      if(dir == null) "target/reports" else dir
+    })
+  )
 //  .settings(testOptions in Test += Tests.Argument("-oI"))
 
