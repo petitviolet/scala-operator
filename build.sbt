@@ -1,8 +1,10 @@
-val VERSION = "0.3.2"
+val VERSION = "0.4.0"
 
 val GROUP_ID = "net.petitviolet"
 
 val PROJECT_NAME = "operator"
+
+val SCALA = "2.12.6"
 
 lazy val commonDependencies = Seq(
   "org.scalatest" %% "scalatest" % "3.0.5" % Test
@@ -11,7 +13,7 @@ lazy val commonDependencies = Seq(
 lazy val commonSettings = Seq(
   version := VERSION,
   organization := GROUP_ID,
-  scalaVersion := "2.12.4"
+  scalaVersion := SCALA
 )
 
 lazy val root = (project in file("."))
@@ -20,22 +22,22 @@ lazy val root = (project in file("."))
 
 lazy val example = (project in file("modules/example"))
   .settings(commonSettings, name := "example")
-  .settings(libraryDependencies += GROUP_ID %% PROJECT_NAME % VERSION)
   .settings(scalacOptions += "-Xlog-implicits")
-//  .dependsOn(operator)
+// .settings(libraryDependencies += GROUP_ID %% PROJECT_NAME % VERSION)
+  .dependsOn(operator)
 
 lazy val operator = (project in file(s"modules/$PROJECT_NAME"))
   .settings(commonSettings: _*)
   .settings(
     name := PROJECT_NAME,
     libraryDependencies ++= commonDependencies,
-    crossScalaVersions := Seq("2.11.11", "2.12.4")
+    crossScalaVersions := Seq("2.11.11", SCALA)
   )
+  .settings(testOptions in Test += Tests.Argument("-oI"))
   .settings(testOptions in Test += Tests.Argument(
     TestFrameworks.ScalaTest, "-u", {
       val dir = System.getenv("CI_REPORTS")
       if(dir == null) "target/reports" else dir
     })
   )
-//  .settings(testOptions in Test += Tests.Argument("-oI"))
 
