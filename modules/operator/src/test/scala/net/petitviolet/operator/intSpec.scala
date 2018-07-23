@@ -21,4 +21,13 @@ class intSpec extends TestBase {
   "++" should "increment int" in {
     1.++ shouldBe 2
   }
+
+  "between" should "includes left and right value" in {
+    10.between(1, 100) shouldBe true
+    10.between(10, 100) shouldBe true
+    10.between(1, 10) shouldBe true
+    
+    10.between(11, 100) shouldBe false
+    10.between(1, 9) shouldBe false
+  }
 }
