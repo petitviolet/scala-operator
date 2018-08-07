@@ -1,0 +1,30 @@
+version: 2
+# scoverageのレポートを保存するよう設定
+
+jobs:
+  build:
+    docker:
+      - image: circleci/openjdk:8-jdk
+    working_directory: ~/scala-operator
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - scala-operator-
+      - run:
+          name: Run compile
+          command: sbt 'project operator' clean update compile
+      - run:
+          name: Run tests
+          command: sbt 'project operator' coverage test coverageReport
+      - run:
+          name: Aggregate coverage reports
+          command: sbt 'project operator' coverageAggregate && sbt 'project operator' coveralls
+      - save_cache:
+          key: scala-operator-
+          paths:
+            - /.sbt
+            - /.ivy2
+      - store_artifacts:
+          path: ~/scala-operator/operator/target/*/scoverage-report
+

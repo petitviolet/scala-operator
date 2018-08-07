@@ -19,6 +19,6 @@ build.sbt
 libraryDependencies += "net.petitviolet" %% "operator" % <latest-version>
 ```
 
-## LISENCE
+## LICENSE
 
-[LISENCE](https://github.com/petitviolet/scala-operator/blob/master/LICENSE)
+[LICENSE](https://github.com/petitviolet/scala-operator/blob/master/LICENSE)
