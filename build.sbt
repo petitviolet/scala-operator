@@ -1,4 +1,4 @@
-val VERSION = "0.6.0-RC2"
+val VERSION = "0.6.1-RC2"
 
 val GROUP_ID = "net.petitviolet"
 
