@@ -1,13 +1,13 @@
-val VERSION = "0.5.0"
+val VERSION = "0.6.0-RC2"
 
 val GROUP_ID = "net.petitviolet"
 
 val PROJECT_NAME = "operator"
 
-val SCALA = "2.12.6"
+val SCALA = "2.13.0-RC2"
 
 lazy val commonDependencies = Seq(
-  "org.scalatest" %% "scalatest" % "3.0.5" % Test
+  "org.scalatest" %% "scalatest" % "3.1.0-SNAP11" % Test,
 )
 
 lazy val commonSettings = Seq(
@@ -31,7 +31,7 @@ lazy val operator = (project in file(s"modules/$PROJECT_NAME"))
   .settings(
     name := PROJECT_NAME,
     libraryDependencies ++= commonDependencies,
-    crossScalaVersions := Seq("2.11.11", SCALA)
+    crossScalaVersions := Seq("2.11.11", "2.12.8", SCALA)
   )
   .settings(testOptions in Test += Tests.Argument("-oI"))
   .settings(testOptions in Test += Tests.Argument(
