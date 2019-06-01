@@ -10,4 +10,6 @@ final class IntOps private[operator](val i: Int) extends AnyVal {
   def ++ : Int = i + 1
 
   def between(min: Int, max: Int): Boolean = min <= i && i <= max
+
+  def times: Range = 1 to i
 }
