@@ -13,9 +13,9 @@ class pipeSpec extends TestBase {
   }
 
 
-
   "<|" should "apply function and return itself" in {
     "123" <| { _.length } shouldBe "123"
+    "123" |>> { _.length } shouldBe "123"
 
     class X(var value: Int)
 
