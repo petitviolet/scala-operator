@@ -12,4 +12,8 @@ final class IntOps private[operator](val i: Int) extends AnyVal {
   def between(min: Int, max: Int): Boolean = min <= i && i <= max
 
   def times: Range = 1 to i
+
+  def repeat[A](init: A)(f: A => A): A = {
+    times.foldLeft(init) { (acc, _) => f(acc) }
+  }
 }
