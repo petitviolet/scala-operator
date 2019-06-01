@@ -5,5 +5,5 @@ compile/operator:
 	sbt -mem 2048 'project operator' compile
 
 release:
-	sbt 'project operator' '+publishSigned' && sbt 'project operator' sonatypeReleaseAll
+	sbt clean compile test 'project operator' '+publishSigned'  sonatypeReleaseAll
 
