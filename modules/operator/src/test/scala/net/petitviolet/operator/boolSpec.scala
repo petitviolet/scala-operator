@@ -35,6 +35,10 @@ class boolSpec extends TestBase {
     false nand true shouldBe true
     false nand false shouldBe true
   }
+  "`not`" should "return reversed boolean" in {
+    net.petitviolet.operator.not(true) shouldBe false
+    net.petitviolet.operator.not(false) shouldBe true
+  }
 
   "fold" should "execute a function" in {
     true.fold[Int](1)(2) shouldBe 1

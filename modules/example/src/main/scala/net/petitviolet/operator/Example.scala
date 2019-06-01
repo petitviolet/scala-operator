@@ -1,4 +1,5 @@
 package net.petitviolet.operator
+import scala.language.postfixOps
 
 object Example extends App {
 
@@ -13,6 +14,11 @@ object Example extends App {
   assert(-10 isNegative)
   0.fold { _.isZero } { i => s"$i is zero" } { i => s"$i is not zero" } |> println
   1.isZero.fold("1 is zero")("1 is not zero") |> println
+
+  assert(10.repeat(0) { _ + 1 } == 10)
+
+  def len: String => Int = _.length
+  assert(len.each(List("hoge", "foo")) == List(4, 3))
 
   // simulate Java class
   private class Config(var port: Int = 0, var host: String = "") {

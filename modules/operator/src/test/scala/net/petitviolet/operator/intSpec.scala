@@ -30,4 +30,19 @@ class intSpec extends TestBase {
     10.between(11, 100) shouldBe false
     10.between(1, 9) shouldBe false
   }
+
+  "times" should "generate Range object 1 to self" in {
+    1.times.length shouldBe 1
+    100.times.length shouldBe 100
+    0.times.length shouldBe 0
+    (-1).times.length shouldBe 0
+  }
+
+  "repeat" should "apply function specified times" in {
+    10.repeat(0) { _ + 1 } shouldBe 10
+    10.repeat(1) { _ * 2 } shouldBe 1024
+
+    0.repeat(0) { _ + 1 } shouldBe 0
+    (-1).repeat(0) { _ + 1 } shouldBe 0
+  }
 }

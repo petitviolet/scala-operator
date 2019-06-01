@@ -3,6 +3,7 @@ package net.petitviolet.operator
 class pipeSpec extends TestBase {
 
   "|>" should "apply function" in {
+    "123" pipe { _.length } shouldBe 3
     "123" |> { _.length } shouldBe 3
 
     "abc" |> { _.reverse } |> { _.toUpperCase } |> { _ + "!"} |> { _.reverse } shouldBe "!ABC"
