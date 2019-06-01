@@ -26,7 +26,7 @@ class intSpec extends TestBase {
     10.between(1, 100) shouldBe true
     10.between(10, 100) shouldBe true
     10.between(1, 10) shouldBe true
-    
+
     10.between(11, 100) shouldBe false
     10.between(1, 9) shouldBe false
   }
