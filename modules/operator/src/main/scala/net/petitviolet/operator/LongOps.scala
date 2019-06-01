@@ -10,6 +10,4 @@ final class LongOps private[operator](val l: Long) extends AnyVal {
   def ++ : Long = l + 1L
 
   def between(min: Long, max: Long): Boolean = min <= l && l <= max
-
-  def times: Range = 1 to l.toInt
 }
