@@ -1,6 +1,6 @@
 package net.petitviolet.operator
 
-final class BoolOps private[operator](val a: Boolean) extends AnyVal {
+final class BoolOps private[operator](private val a: Boolean) extends AnyVal {
   def and(b: => Boolean): Boolean = a && b
 
   def or(b: => Boolean): Boolean = a || b
@@ -22,7 +22,7 @@ object not {
   def apply(b: Boolean): Boolean = !b
 }
 
-final class RichBoolOps[A] private[operator](val a: A) extends AnyVal {
+final class RichBoolOps[A] private[operator](private val a: A) extends AnyVal {
   def is(b: A): Boolean = a == b
   def not(b: A): Boolean = !is(b)
   def <>(b: A): Boolean = not(b)

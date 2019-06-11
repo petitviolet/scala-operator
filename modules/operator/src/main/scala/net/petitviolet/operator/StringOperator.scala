@@ -9,7 +9,7 @@ private object internalStringOps {
   val replacementPattern: String = "$1_$2"
 }
 
-class StringOperator(val word: String) extends AnyVal {
+class StringOperator(private val word: String) extends AnyVal {
 
   import internalStringOps._
 
