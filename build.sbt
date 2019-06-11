@@ -1,13 +1,13 @@
-val VERSION = "0.6.1-RC2"
+val VERSION = "0.6.1"
 
 val GROUP_ID = "net.petitviolet"
 
 val PROJECT_NAME = "operator"
 
-val SCALA = "2.13.0-RC2"
+val SCALA = "2.13.0"
 
 lazy val commonDependencies = Seq(
-  "org.scalatest" %% "scalatest" % "3.1.0-SNAP11" % Test,
+  "org.scalatest" %% "scalatest" % "3.0.8" % Test,
 )
 
 lazy val commonSettings = Seq(
