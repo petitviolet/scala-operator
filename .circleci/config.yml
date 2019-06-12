@@ -13,7 +13,7 @@ jobs:
             - scala-operator-
       - run:
           name: Run compile
-          command: sbt 'project operator' clean update compile
+          command: sbt 'project operator' clean update +compile
       - run:
           name: Run tests
           command: sbt 'project operator' coverage test coverageReport
