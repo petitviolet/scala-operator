@@ -1,12 +1,10 @@
 package net.petitviolet.operator
 
-import scala.util.chaining.scalaUtilChainingOps
-
-final class Pipe[A] private[operator](private val value: A) extends AnyVal { self =>
+final class Pipe[A] private[operator](val value: A) extends AnyVal { self =>
   def |>[B](f: A => B): B = pipe(f)
-  def pipe[B](f: A => B): B = scalaUtilChainingOps(value).pipe(f)
+  def pipe[B](f: A => B): B = f(value)
 
-  def tap(f: A => Unit): A = scalaUtilChainingOps(value).tap(f)
   def <|(f: A => Unit): A = tap(f)
-  def |>>(f: A => Unit): A = tap(f)
+  def tap(f: A => Unit): A = { f(value); value }
+  def |>>(f: A => Unit): A = self <| f
 }
