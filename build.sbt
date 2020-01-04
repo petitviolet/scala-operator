@@ -4,7 +4,7 @@ val GROUP_ID = "net.petitviolet"
 
 val PROJECT_NAME = "operator"
 
-val SCALA = "2.13.0"
+val SCALA = "2.13.1"
 
 lazy val commonDependencies = Seq(
   "org.scalatest" %% "scalatest" % "3.0.8" % Test,
