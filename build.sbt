@@ -4,16 +4,18 @@ val GROUP_ID = "net.petitviolet"
 
 val PROJECT_NAME = "operator"
 
-val SCALA = "2.13.1"
+val scala2 = "2.13.6"
+val scala3 = "3.0.0"
 
 lazy val commonDependencies = Seq(
-  "org.scalatest" %% "scalatest" % "3.0.8" % Test,
+  "org.scalatest" %% "scalatest" % "3.2.9" % Test,
 )
 
 lazy val commonSettings = Seq(
   version := VERSION,
   organization := GROUP_ID,
-  scalaVersion := SCALA
+  scalaVersion := scala3,
+  semanticdbVersion := "4.4.18"
 )
 
 lazy val root = (project in file("."))
@@ -31,10 +33,10 @@ lazy val operator = (project in file(s"modules/$PROJECT_NAME"))
   .settings(
     name := PROJECT_NAME,
     libraryDependencies ++= commonDependencies,
-    crossScalaVersions := Seq("2.11.11", "2.12.8", SCALA)
+    crossScalaVersions := Seq(scala3, scala2)
   )
-  .settings(testOptions in Test += Tests.Argument("-oI"))
-  .settings(testOptions in Test += Tests.Argument(
+  .settings(Test / testOptions += Tests.Argument("-oI"))
+  .settings(Test / testOptions += Tests.Argument(
     TestFrameworks.ScalaTest, "-u", {
       val dir = System.getenv("CI_REPORTS")
       if(dir == null) "target/reports" else dir
